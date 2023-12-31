@@ -15,10 +15,14 @@ let password = "";
 let passLength = 10;
 let checkCount = 0;
 
+set_Indicator('#ccc')
 handle_slider();
 function handle_slider(){
     inputSlider.value = passLength;
     lengthDisplay.innerText = passLength;
+    const min = inputSlider.min;
+    const max = inputSlider.max;
+    inputSlider.style.backgroundSize = ((passLength-min)*100/(max-min))+'% 100%'
 }
 
 
@@ -39,7 +43,7 @@ function shufflePassword(array){
 
 function set_Indicator(color){
     indicator.style.backgroundColor = color;
-    //shadow
+    indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
 
 function getRanInt(min,max){
